@@ -9,7 +9,6 @@ User = get_user_model()
 
 
 class RegisterAPIView(APIView):
-    """Регистрация пользователя"""
     permission_classes = [permissions.AllowAny]
     @swagger_auto_schema(request_body=RegisterSerializer)
     def post(self, request):
@@ -20,7 +19,6 @@ class RegisterAPIView(APIView):
 
 
 class LoginAPIView(APIView):
-    """Логин с JWT"""
     permission_classes = [permissions.AllowAny]
     @swagger_auto_schema(request_body=LoginSerializer)
     def post(self, request):
@@ -35,7 +33,6 @@ class LoginAPIView(APIView):
 
 
 class LogoutAPIView(APIView):
-    """Логаут (блокировка refresh токена)"""
     permission_classes = [permissions.IsAuthenticated]
     def post(self, request):
         try:
